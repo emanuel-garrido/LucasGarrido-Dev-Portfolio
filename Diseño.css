@@ -1,730 +1,930 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
-*{
+
+/* Variables para una gestión de color más sencilla */
+:root {
+    --background-dark: #1e2326;
+    --background-medium: #252A2E;
+    --primary-color: #1CB698;
+    --text-color-light: #fff;
+    --text-color-dark: #000;
+}
+
+* {
     box-sizing: border-box;
-    font-family: 'Work Sans';
+    font-family: 'Work Sans', sans-serif; /* Añadido fallback sans-serif */
     margin: 0;
     padding: 0;
 }
-html{
-    /* me permite deslizar cuando hago clic en los links del menu */
+
+html {
+    /* Permite desplazamiento suave al hacer clic en los enlaces del menú */
     scroll-behavior: smooth;
 }
-/* MENU */
-.contenedor-header{
-    background: #1e2326;
+
+body {
+     background-color: var(--background-dark); /* Asegurar que el cuerpo tenga un fondo */
+     color: var(--text-color-light); /* Color de texto por defecto */
+}
+
+/* Padding general de secciones y contenedor de contenido */
+section {
+    padding: 80px 20px; /* Padding vertical aumentado */
+    overflow: hidden; /* Ocultar elementos antes de la aparición */
+}
+
+section .contenido-seccion {
+    max-width: 1100px; /* Usar ancho máximo consistente */
+    margin: auto;
+}
+
+h2 {
+    font-size: 48px;
+    font-family: 'Righteous', cursive; /* Añadido fallback cursive */
+    text-align: center;
+    padding-bottom: 20px; /* Padding ajustado */
+    color: var(--primary-color); /* Color de los títulos principales */
+}
+
+/* Animación de aparición para secciones */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* MENÚ */
+.contenedor-header {
+    background: var(--background-dark);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 90;
+    z-index: 99; /* Z-index aumentado */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra añadida */
 }
-.contenedor-header header{
-    max-width: 2000px;
+.contenedor-header header {
+    max-width: 1100px; /* Usar ancho máximo consistente */
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
 }
-.contenedor-header header .logo a{
-    font-family: 'Righteous';
+.contenedor-header header .logo a {
+    font-family: 'Righteous', cursive;
     font-size: 25px;
-    color: #1CB698;
+    color: var(--primary-color);
     text-decoration: none;
+    transition: color 0.3s ease; /* Transición suave para el hover */
 }
-.contenedor-header header ul{
+.contenedor-header header .logo a:hover {
+     color: var(--text-color-light); /* Color al pasar el ratón */
+}
+.contenedor-header header ul {
     display: flex;
     list-style: none;
 }
-.contenedor-header header nav ul li a{
+.contenedor-header header nav ul li a {
     text-align: center;
-    color: #fff;
+    color: var(--text-color-light);
     margin: 0 15px;
-    padding: 3px;
-    transition: .5s;
+    padding: 5px; /* Padding aumentado */
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Transiciones suaves */
     text-decoration: none;
+    position: relative; /* Para efecto de subrayado */
 }
-.contenedor-header header nav ul li a:hover{
-    color: #1CB698;
+
+/* Efecto de subrayado al pasar el ratón */
+.contenedor-header header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
 }
-.nav-responsive{
-    background-color: #1CB698;
-    color:#fff;
+
+.contenedor-header header nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.contenedor-header header nav ul li a:hover::after {
+    width: 100%;
+}
+
+.nav-responsive {
+    background-color: var(--primary-color);
+    color:var(--text-color-light);
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    display: none;
+    display: none; /* Oculto por defecto en escritorio */
+    font-size: 20px; /* Tamaño de icono aumentado */
+    transition: background-color 0.3s ease;
 }
-/* SECCION I N I C I O */
-.inicio{
+.nav-responsive:hover {
+     background-color: darken(var(--primary-color), 10%); /* Efecto hover simple */
+}
+
+/* SECCIÓN INICIO */
+.inicio {
     background: linear-gradient(to top, rgba(30,35,38,.8), rgba(30,35,38,1)),
     url(ImNotRobot.jpg);
     background-size: cover;
-    height: 98vh;
-    color: #fff;
+    background-position: center; /* Centrar la imagen de fondo */
+    height: 100vh; /* Usar 100vh para altura de viewport completa */
+    color: var(--text-color-light);
     display: flex;
     align-items: center;
+    justify-content: center; /* Centrar contenido horizontalmente */
+    padding-top: 80px; /* Añadir padding para compensar el encabezado fijo */
 }
-.inicio .contenido-banner{
-    padding: 20px;
-    background-color: #1e2326;
-    max-width: 350px;
-    margin: auto;
+.inicio .contenido-banner {
+    padding: 30px; /* Padding aumentado */
+    background-color: var(--background-dark);
+    max-width: 400px; /* Ancho máximo ligeramente aumentado */
     text-align: center;
-    border-radius: 40px;
+    border-radius: 15px; /* Border-radius suavizado */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra añadida */
+    animation: fadeInScale 1s ease-out; /* Animación para el banner */
 }
-.inicio .contenido-banner img{
-    margin-top: 40px;
-    border: 10px solid #1CB698;
+
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.inicio .contenido-banner .contenedor-img {
+    margin-top: 0; /* Margin-top eliminado */
+    width: 180px; /* Establecer un tamaño fijo */
+    height: 180px;
+    margin: 0 auto 20px auto; /* Centrado y añadido margen inferior */
+    border: 5px solid var(--primary-color); /* Borde ajustado */
+    border-radius: 50%; /* Asegurar que sea perfectamente redondo */
+    overflow: hidden; /* Ocultar desbordamiento */
+    display: flex; /* Usar flex para centrar la imagen */
+    align-items: center;
+    justify-content: center;
+}
+
+.inicio .contenido-banner .contenedor-img img {
     display: block;
-    width: 80%;
-    margin: auto;
-    border-radius: 100%;
+    width: 100%; /* La imagen llena el contenedor */
+    height: 100%; /* La imagen llena el contenedor */
+    object-fit: cover; /* Recortar imagen de forma atractiva */
+    border: none; /* Borde eliminado de la img */
+    border-radius: 0; /* Border-radius eliminado de la img */
+    margin: 0; /* Margen eliminado de la img */
 }
-.inicio .contenido-banner h1{
-    margin-top: 40px;
-    font-size: 42px;
-    font-family: 'Righteous';
+
+.inicio .contenido-banner h1 {
+    margin-top: 20px; /* Margin-top ajustado */
+    font-size: 48px; /* Tamaño de fuente aumentado */
+    font-family: 'Righteous', cursive;
+    margin-bottom: 5px; /* Margen inferior añadido */
 }
-.inicio .contenido-banner h2{
-    font-size: 15px;
-    font-weight: normal;
+.inicio .contenido-banner h2 {
+    font-size: 18px; /* Tamaño de fuente aumentado */
+    font-weight: 300; /* Peso más ligero */
+    text-transform: uppercase; /* Mayúsculas */
+    color: #ccc; /* Color ligeramente más claro */
 }
-.inicio .contenido-banner .redes a{
-    color: #fff;
+.inicio .contenido-banner .redes {
+     margin-top: 30px; /* Margen ajustado */
+}
+.inicio .contenido-banner .redes a {
+    color: var(--text-color-light);
     display: inline-block;
     text-decoration: none;
-    border: 1px solid #fff;
-    border-radius: 100%;
-    width: 42px;
-    height: 42px;
-    line-height: 42px;
-    margin: 40px 5px;
+    border: 1px solid var(--text-color-light);
+    border-radius: 50%; /* Asegurar que sea perfectamente redondo */
+    width: 40px; /* Tamaño ajustado */
+    height: 40px;
+    line-height: 40px;
+    margin: 0 8px; /* Margen ajustado */
     font-size: 20px;
-    transition: .3s;
-}
-.inicio .contenido-banner .redes a:hover{
-    background-color: #1CB698;
-}
-.sobremi{
-    background-color: #1e2326;
-    color: #fff;
-    padding: 50px 20px;
-}
-.sobremi .contenido-seccion{
-    max-width: 1100px;
-    margin: auto;
-}
-.sobremi h2{
-    font-size: 48px;
-    font-family: 'Righteous';
-    text-align: center;
-    padding: 20px 0;
-
-}
-.sobremi .contenido-seccion p{
-    font: 18px;
-    line-height: 22px;
-    margin-bottom: 20px;
-}
-.sobremi .contenido-seccion p span{
-    color: #1CB698;
-    font-weight: bold;
-}
-.sobremi .fila{
-    display: flex;
-}
-.sobremi .fila .col
-{
-    width: 50%;
-}
-.sobremi .fila .col h3{
-    font-size: 28px;
-    font-family: 'Righteous';
-    margin-bottom: 25px;
-}
-.sobremi .fila .col ul{
-    list-style: none;
-}
-.sobremi .fila .col ul li{
-    margin: 12px 0;
-}
-.sobremi .fila .col ul li strong{
-    display: inline-block;
-    color: #1CB698;
-    width: 130px;
-}
-.sobremi .fila .col ul li span{
-    background-color: #1CB698;
-    padding: 3px;
-    font-weight: bold;
-    border-radius: 5px;
-}
-.sobremi .fila .col .contenedor-intereses{
-    display: flex;
-    flex-wrap: wrap;
-}
-.sobremi .fila .col .contenedor-intereses .interes{
-    width: 100px;
-    height: 100px;
-    background-color: #252A2E;
-    border-radius: 10px;
-    margin: 0 15px 15px 0;
-    display: flex;
-    flex-direction: column;
+    transition: all 0.3s ease; /* Transición suave */
+    display: inline-flex; /* Usar flex para centrar icono */
     align-items: center;
     justify-content: center;
-    transition: .3s;
-}.sobremi .fila .col .contenedor-intereses .interes:hover{
-    background-color: #1CB698;
 }
-.sobremi .fila .col .contenedor-intereses .interes i{
-    font-size: 30px;
-    margin-bottom: 10px;
+.inicio .contenido-banner .redes a:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color); /* Coincidir color del borde */
+    transform: translateY(-5px); /* Efecto de ligero levantamiento */
 }
-.sobremi button{
-    cursor: pointer;
-    background-color: transparent;
-    border: 2px solid #fff;
-    width: fit-content;
-    display: block;
-    margin: 20px auto;
-    padding: 10px 22px;
-    font-size: 16px;
-    color: #fff;
-    position: relative;
-    z-index: 10;
-}
-.sobremi button .overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: #1CB698;
-    z-index: -1;
-    transition: 1s;
-}
-.sobremi button:hover .overlay{
-    width: 100%;
-}
-/* SECCION S K I L L S */
-.skills{
-    background-color: #252A2E;
-    color: #fff;
-    padding: 50px 20px;
-}
-.skills .contenido-seccion{
-    max-width: 1100px;
-    margin: auto;
-}
-.skills h2{
-    font-size: 48px;
-    font-family: 'Righteous';
-    text-align: center;
-    padding: 20px 0;
 
+/* SECCIÓN SOBRE MÍ */
+.sobremi {
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
 }
-.skills .fila{
-    display: flex;
+
+.sobremi .contenido-seccion p {
+    font-size: 1rem; /* Usar rem para mejor escalado */
+    line-height: 1.6; /* Altura de línea aumentada para legibilidad */
+    margin-bottom: 20px;
+    text-align: justify; /* Justificar texto */
 }
-.skills .fila .col{
-    width: 50%;
-    padding: 0 20px;
-}
-.skills .fila .col h3{
-    font-size: 28px;
-    font-family: 'Righteous';
-    margin-bottom: 25px;
-}
-.skills .skill > span{
+.sobremi .contenido-seccion p span {
+    color: var(--primary-color);
     font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
 }
-.skills .skill .barra-skill{
-    height: 8px;
-    width: 80%;
-    background-color: #131517;
-    position: relative;
+
+.sobremi .skills-description {
     margin-bottom: 30px;
-}
-.skills .skill .progreso{
-    background-color: #1CB698;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 8px;
-}
-.skills .skill .barra-skill span{
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    background-color: #1CB698;
-    border-radius: 50px;
-    line-height: 40px;
-    text-align: center;
-    top: -17px;
-    right: -15px;
-    font-size: 14px;
-}
-/* Estas clases se agregaran dinamicamente mediante javascript */
-.skills .skill .javascript{
-    width: 0%;
-    animation: 2s javascript forwards;
-}
-@keyframes javascript {
-    0%{width: 0%;}
-    100%{width: 75%;}
+    padding: 20px;
+    background-color: var(--background-medium); /* Fondo diferente */
+    border-left: 4px solid var(--primary-color); /* Resaltado */
+    border-radius: 5px;
 }
 
-.skills .skill .htmlcss{
-    width: 0%;
-    animation: 2s htmlcss forwards;
-}
-@keyframes htmlcss {
-    0%{width: 0%;}
-    100%{width: 75%;}
+.sobremi .skills-description h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-family: 'Righteous', cursive;
 }
 
-.skills .skill .photoshop{
-    width: 0%;
-    animation: 2s photoshop forwards;
-}
-@keyframes photoshop {
-    0%{width: 0%;}
-    100%{width: 95%;}
+.sobremi .skills-description ul {
+    list-style: none;
+    padding: 0;
 }
 
-.skills .skill .wordpress{
-    width: 0%;
-    animation: 2s wordpress forwards;
-}
-@keyframes wordpress {
-    0%{width: 0%;}
-    100%{width: 90%;}
+.sobremi .skills-description ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
-.skills .skill .drupal{
-    width: 0%;
-    animation: 2s drupal forwards;
-}
-@keyframes drupal {
-    0%{width: 0%;}
-    100%{width: 85%;}
-}
-
-.skills .skill .comunicacion{
-    width: 0%;
-    animation: 2s comunicacion forwards;
-}
-@keyframes comunicacion {
-    0%{width: 0%;}
-    100%{width: 85%;}
-}
-
-.skills .skill .trabajo{
-    width: 0%;
-    animation: 2s trabajo forwards;
-}
-@keyframes trabajo {
-    0%{width: 0%;}
-    100%{width: 90%;}
-}
-
-.skills .skill .creatividad{
-    width: 0%;
-    animation: 2s creatividad forwards;
-}
-@keyframes creatividad {
-    0%{width: 0%;}
-    100%{width: 95%;}
-}
-
-.skills .skill .dedicacion{
-    width: 0%;
-    animation: 2s dedicacion forwards;
-}
-@keyframes dedicacion {
-    0%{width: 0%;}
-    100%{width: 95%;}
+.sobremi .skills-description ul li strong {
+    color: var(--text-color-light); /* Mantener color fuerte */
 }
 
 
-/* SECCION CURRICULUM */
-.curriculum{
-    background-color: #1e2326;
-    color: #fff;
-    padding: 50px 20px;
-}
-.curriculum .contenido-seccion{
-    max-width: 1100px;
-    margin: auto;
-}
-.curriculum h2{
-    font-size: 48px;
-    font-family: 'Righteous';
-    text-align: center;
-    padding: 20px 0;
-
-}
-.curriculum .fila{
+.sobremi .fila {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Permitir ajuste en pantallas más pequeñas */
+    gap: 30px; /* Añadir espacio entre columnas */
 }
-.curriculum .fila .col{
-    width: 49%;
-    padding: 0 20px;
+.sobremi .fila .col {
+    flex: 1; /* Hacer columnas flexibles */
+    min-width: 280px; /* Ancho mínimo antes de ajustar */
 }
-.curriculum .fila .col h3{
-    font-size: 28px;
-    font-family: 'Righteous';
+.sobremi .fila .col h3 {
+    font-size: 2rem; /* Usar rem */
+    font-family: 'Righteous', cursive;
     margin-bottom: 25px;
+    color: var(--primary-color);
 }
-.curriculum .fila .izquierda{
-    border-right: 2px solid #252A2E;
+.sobremi .fila .col ul {
+    list-style: none;
+    padding: 0; /* Eliminar padding por defecto */
 }
-.curriculum .fila .derecha{
-    border-left: 2px solid #252A2E;
+.sobremi .fila .col ul li {
+    margin: 15px 0; /* Margen aumentado */
+    font-size: 1.1rem; /* Tamaño de fuente aumentado */
+    border-bottom: 1px dashed var(--background-medium); /* Separador sutil */
+    padding-bottom: 10px;
 }
-.curriculum .fila .item{
-    padding: 25px;
-    margin-bottom: 30px;
-    background-color: #252A2E;
-    position: relative;
+.sobremi .fila .col ul li:last-child {
+    border-bottom: none; /* Eliminar borde del último elemento */
 }
-.curriculum .fila .item h4{
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-.curriculum .fila .item .casa{
-    color: #1CB698;
-    font-size: 22px;
+
+.sobremi .fila .col ul li strong {
+    display: inline-block;
+    color: var(--primary-color);
+    width: 160px; /* Ancho aumentado para etiquetas */
+    margin-right: 10px;
     font-weight: bold;
-    display: block;
 }
-.curriculum .fila .item .fecha{
-    display: block;
-    color: #1CB698;
-    margin-bottom: 10px;
+.sobremi .fila .col ul li span {
+    background-color: var(--primary-color);
+    padding: 4px 8px; /* Padding ajustado */
+    font-weight: bold;
+    border-radius: 5px;
+    color: var(--text-color-dark); /* Texto oscuro sobre verde */
 }
-.curriculum .fila .item p{
-    line-height: 24px;
+
+/* Eliminados estilos de .contenedor-intereses y botón de .sobremi */
+
+
+/* SECCIÓN HABILIDADES */
+.skills {
+    background-color: var(--background-medium);
+    color: var(--text-color-light);
 }
-.curriculum .fila .izq{
-    border-right: 2px solid #1CB698;
-    margin-right: 20px;
-}
-.curriculum .fila .der{
-    border-left: 2px solid #1CB698;
-    margin-left: 20px;
-}
-.curriculum .fila .item .conectori{
-    height: 2px;
-    background-color: #1CB698;
-    width: 47px;
-    position: absolute;
-    top: 50%;
-    right: -47px;
-    z-index: 5;
-}
-.curriculum .fila .item .conectori .circuloi{
-    display: block;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    background-color: #1CB698;
-    float: right;
-    position: relative;
-    bottom: 4px;
-}
-.curriculum .fila .item .conectord{
-    height: 2px;
-    background-color: #1CB698;
-    width: 47px;
-    position: absolute;
-    top: 50%;
-    left: -47px;
-    z-index: 5;
-}
-.curriculum .fila .item .conectord .circulod{
-    display: block;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    background-color: #1CB698;
-    float: left;
-    position: relative;
-    bottom: 4px;
-}
-/* SECCION PORTFOLIO */
-.portfolio{
-    background-color: #252A2E;
-    color: #fff;
-    padding: 50px 20px;
-}
-.portfolio .contenido-seccion{
-    max-width: 1100px;
-    margin: auto;
-}
-.portfolio h2{
-    font-size: 48px;
-    font-family: 'Righteous';
-    text-align: center;
-    padding: 20px 0;
-}
-.portfolio .galeria{
+
+.skills .fila {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 40px; /* Espacio entre columnas de habilidad */
 }
-.portfolio .galeria .proyecto{
-    position: relative;
-    max-width: 340px;
-    height: fit-content;
-    margin: 10px;
-    cursor: pointer;
+.skills .fila .col {
+    flex: 1;
+    min-width: 300px; /* Ancho mínimo para columnas */
+    padding: 0 10px; /* Padding interno reducido */
 }
-.portfolio .galeria .proyecto img{
-    width: 100%;
+.skills .fila .col h3 {
+    font-size: 2rem;
+    font-family: 'Righteous', cursive;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+.skills .skill {
+    margin-bottom: 25px; /* Espacio entre habilidades */
+}
+.skills .skill > span {
+    font-weight: bold;
     display: block;
+    margin-bottom: 8px; /* Margen reducido */
+    font-size: 1.1rem;
 }
-.portfolio .galeria .proyecto .overlay{
+.skills .skill .barra-skill {
+    height: 10px; /* Altura aumentada */
+    width: 100%; /* Usar 100% de ancho */
+    background-color: var(--background-dark);
+    position: relative;
+    border-radius: 5px; /* Esquinas redondeadas */
+    overflow: hidden; /* Ocultar progreso desbordado */
+}
+.skills .skill .progreso {
+    background-color: var(--primary-color);
     position: absolute;
     top: 0;
+    left: 0;
+    height: 100%; /* Llenar altura */
+    width: 0; /* Empezar con ancho 0 para animación */
+    transition: width 1s ease-in-out; /* Animación suave */
+}
+.skills .skill .progreso.active {
+     /* El ancho se establece con JS basado en el porcentaje */
+}
+
+.skills .skill .barra-skill span {
+    position: absolute;
+    height: 30px; /* Tamaño ajustado */
+    width: 50px; /* Tamaño ajustado */
+    background-color: var(--primary-color);
+    border-radius: 5px; /* Extremos cuadrados */
+    line-height: 30px;
+    text-align: center;
+    top: -35px; /* Posicionar encima de la barra */
+    right: 0; /* Alinear al final de la barra de progreso */
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-color-dark);
+    transform: translateX(50%); /* Ajustar para centrar relativo al final */
+    /* Eliminados los porcentajes estáticos de los keyframes de CSS */
+}
+
+
+/* Estas clases se agregarán dinámicamente mediante javascript para la animación */
+/* Los porcentajes están en el selector de clase para que JS pueda activarlos */
+.skills .skill .progreso.javascript { width: 75%; }
+.skills .skill .progreso.htmlcss { width: 75%; }
+.skills .skill .progreso.react { width: 60%; }
+.skills .skill .progreso.vuejs { width: 50%; }
+.skills .skill .progreso.git { width: 70%; }
+
+.skills .skill .progreso.comunicacion { width: 95%; }
+.skills .skill .progreso.trabajo-equipo { width: 90%; } /* Clase corregida */
+.skills .skill .progreso.creatividad { width: 85%; }
+.skills .skill .progreso.dedicacion { width: 85%; }
+.skills .skill .progreso.adaptabilidad { width: 90%; }
+
+
+/* SECCIÓN CURRÍCULUM */
+.curriculum {
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
+}
+
+/* Estilo para el botón de descarga de CV */
+.btn-download-cv {
+    display: block; /* Cambiado a bloque */
+    background-color: var(--primary-color);
+    color: var(--text-color-dark); /* Texto oscuro sobre verde */
+    padding: 12px 25px; /* Padding ajustado */
+    margin: 20px auto 40px auto; /* Centrado y añadido margen inferior */
+    border: none;
+    border-radius: 25px; /* Botón más redondeado */
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none; /* Eliminar subrayado */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición suave */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra añadida */
+}
+
+.btn-download-cv:hover {
+    background-color: var(--text-color-light); /* Blanco al pasar el ratón */
+    color: var(--background-dark); /* Texto oscuro */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4); /* Sombra aumentada */
+    transform: translateY(-2px); /* Ligero levantamiento */
+}
+.btn-download-cv i {
+    margin-left: 10px; /* Espacio entre texto e icono */
+}
+
+
+.curriculum .fila {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permitir ajuste */
+    gap: 40px; /* Espacio entre columnas */
+}
+.curriculum .fila .col {
+    flex: 1; /* Hacer columnas flexibles */
+    min-width: 300px; /* Ancho mínimo */
+    padding: 0 15px; /* Padding ajustado */
+}
+.curriculum .fila .col h3 {
+    font-size: 2rem;
+    font-family: 'Righteous', cursive;
+    margin-bottom: 30px; /* Margen aumentado */
+    text-align: center; /* Centrar título */
+    color: var(--primary-color);
+}
+.curriculum .fila .izquierda {
+    border-right: none; /* Eliminado borde vertical */
+}
+.curriculum .fila .derecha {
+    border-left: none; /* Eliminado borde vertical */
+}
+
+/* Estilos para los elementos de la línea de tiempo */
+.curriculum .fila .item {
+    padding: 20px; /* Padding ajustado */
+    margin-bottom: 30px;
+    background-color: var(--background-medium);
+    position: relative;
+    border-left: 4px solid var(--primary-color); /* Borde izquierdo para efecto de línea de tiempo */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra añadida */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadir transiciones */
+}
+
+.curriculum .fila .item:hover {
+    transform: translateY(-5px); /* Ligero levantamiento al pasar el ratón */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra aumentada al pasar el ratón */
+}
+
+
+.curriculum .fila .item h4 {
+    font-size: 1.4rem; /* Tamaño de fuente aumentado */
+    margin-bottom: 8px; /* Margen ajustado */
+    color: var(--text-color-light);
+}
+.curriculum .fila .item .casa {
+    color: var(--primary-color);
+    font-size: 1.1rem; /* Usar rem */
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px; /* Margen añadido */
+}
+.curriculum .fila .item .fecha {
+    display: block;
+    color: #ccc; /* Color más claro para la fecha */
+    margin-bottom: 15px; /* Margen ajustado */
+    font-size: 0.9rem;
+}
+.curriculum .fila .item p {
+    line-height: 1.6; /* Altura de línea aumentada */
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Ocultar estilos de conector y círculo visual */
+.curriculum .fila .item .conectori,
+.curriculum .fila .item .conectord,
+.curriculum .fila .item .conectori .circuloi,
+.curriculum .fila .item .conectord .circulod {
+    display: none; /* Ocultar conectores visuales HTML */
+}
+
+
+/* SECCIÓN PORTAFOLIO */
+.portfolio {
+    background-color: var(--background-medium);
+    color: var(--text-color-light);
+}
+
+.portfolio .galeria {
+    display: grid; /* Usar CSS Grid para un mejor control del diseño */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo */
+    gap: 20px; /* Espacio entre elementos de grid */
+    padding: 20px 0; /* Padding alrededor del grid */
+}
+.portfolio .galeria .proyecto {
+    position: relative;
+    margin: 0; /* Eliminar margen ya que el grid maneja el espaciado */
+    border-radius: 10px; /* Esquinas redondeadas */
+    overflow: hidden; /* Ocultar desbordamiento para el border-radius */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra añadida */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadir transiciones */
+}
+
+.portfolio .galeria .proyecto:hover {
+    transform: scale(1.03); /* Agrandar ligeramente al pasar el ratón */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Sombra aumentada */
+}
+
+
+.portfolio .galeria .proyecto img {
+    width: 100%;
+    height: 250px; /* Altura fija para consistencia */
+    display: block;
+    object-fit: cover; /* Asegurar que la imagen cubra el área */
+    transition: transform 0.5s ease; /* Transición suave para la imagen */
+}
+
+.portfolio .galeria .proyecto:hover img {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón sobre la imagen */
+}
+
+
+.portfolio .galeria .proyecto .overlay {
+    position: absolute;
+    top: 0;
+    left: 0; /* Añadido left: 0 */
     width: 100%;
     height: 100%;
     text-align: center;
-    background: linear-gradient(rgba(28,182,152,.8), rgba(28,182,152,.8));
+    background: linear-gradient(rgba(28,182,152,.9), rgba(28,182,152,.9)); /* Opacidad aumentada */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: 1s;
-    font-size: 18px;
-    letter-spacing: 3px;
+    align-items: center; /* Centrar contenido vertical y horizontalmente */
+    transition: opacity 0.5s ease; /* Transición suave */
+    font-size: 1rem;
+    letter-spacing: 2px; /* Espaciado de letra ajustado */
     opacity: 0;
+    color: var(--text-color-dark); /* Texto oscuro en el overlay */
+    padding: 20px; /* Padding añadido */
 }
-.portfolio .galeria .proyecto .overlay h3{
-    margin-bottom: 20px;
-    transition: 1s;
+.portfolio .galeria .proyecto .overlay h3 {
+    margin-bottom: 15px; /* Margen ajustado */
+    transition: margin-bottom 0.5s ease; /* Transición suave */
+    font-size: 1.5rem;
+    color: var(--text-color-dark);
 }
-.portfolio .galeria .proyecto .overlay:hover{
+.portfolio .galeria .proyecto .overlay p {
+     font-size: 1.1rem;
+     margin-bottom: 20px;
+}
+.portfolio .galeria .proyecto .overlay .project-link {
+    display: inline-block;
+    background-color: var(--background-dark);
+    color: var(--primary-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.portfolio .galeria .proyecto .overlay .project-link:hover {
+     background-color: var(--text-color-light);
+     color: var(--background-dark);
+}
+
+
+.portfolio .galeria .proyecto .overlay:hover {
     opacity: 1;
 }
-.portfolio .galeria .proyecto .overlay:hover h3{
-    margin-bottom: 0px;
+.portfolio .galeria .proyecto .overlay:hover h3 {
+    margin-bottom: 10px; /* Margen ajustado */
 }
-/* SECCION CONTACTO */
-.contacto{
-    background-image: url(img/contact_bg.png);
-    background-color: #1e2326;
-    color: #fff;
-    padding: 50px 0;
+
+/* SECCIÓN CONTACTO */
+.contacto {
+    /* Fondo de imagen eliminado, usando color */
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
+    padding: 50px 0; /* Padding vertical */
 }
-.contacto .contenido-seccion{
-    max-width: 1100px;
-    margin: auto;
-}
-.contacto h2{
-    font-size: 48px;
-    font-family: 'Righteous';
-    text-align: center;
-    padding: 20px 0;
-}
-.contacto .fila{
+
+.contacto .fila {
     display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Espacio entre columnas */
 }
-.contacto .col{
-    width: 50%;
+.contacto .col {
+    flex: 1;
+    min-width: 300px;
     padding: 10px;
     position: relative;
 }
-.contacto .col input, .contacto .col textarea{
+.contacto .col input, .contacto .col textarea {
     display: block;
     width: 100%;
-    padding: 18px;
+    padding: 15px; /* Padding ajustado */
     border: none;
     margin-bottom: 20px;
-    background-color: #252A2E;
-    color: #fff;
-    font-size: 18px;
+    background-color: var(--background-medium);
+    color: var(--text-color-light);
+    font-size: 1rem;
+    border-radius: 5px; /* Esquinas redondeadas */
+    outline: none; /* Eliminar contorno al enfocar */
 }
-.contacto button{
+
+.contacto .col input:focus, .contacto .col textarea:focus {
+     border: 1px solid var(--primary-color); /* Resaltar al enfocar */
+     box-shadow: 0 0 5px rgba(28,182,152,0.5);
+}
+
+.contacto button {
     cursor: pointer;
-    background-color: transparent;
-    border: 2px solid #fff;
+    background-color: var(--primary-color); /* Fondo sólido */
+    border: none; /* Borde eliminado */
     width: fit-content;
     display: block;
     margin: 20px auto;
-    padding: 10px 22px;
-    font-size: 16px;
-    color: #fff;
+    padding: 12px 25px; /* Padding ajustado */
+    font-size: 1rem;
+    color: var(--text-color-dark); /* Texto oscuro en el botón */
     position: relative;
-    z-index: 10;
+    z-index: 1; /* Z-index encima del overlay */
+    overflow: hidden; /* Ocultar overlay antes del hover */
+    border-radius: 25px; /* Más redondeado */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transición para el color del texto */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra añadida */
 }
-.contacto button .overlay{
+
+.contacto button i {
+    margin-left: 10px;
+}
+
+.contacto button .overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 0;
+    width: 0; /* Empezar con ancho 0 */
     height: 100%;
-    background-color: #1CB698;
+    background-color: var(--background-dark); /* Overlay oscuro */
     z-index: -1;
-    transition: 1s;
+    transition: width 0.5s ease; /* Transición de ancho suave */
 }
-.contacto button:hover .overlay{
+.contacto button:hover {
+     color: var(--primary-color); /* Texto verde al pasar el ratón */
+     box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+     transform: translateY(-2px); /* Ligero levantamiento */
+}
+
+.contacto button:hover .overlay {
     width: 100%;
 }
-.contacto .col img{
-    width: 100%;
+
+.contacto .col img {
+     width: 100%;
+     height: auto; /* Asegurar que se mantiene la relación de aspecto */
+     display: block; /* Eliminar espacio extra debajo de la imagen */
+     border-radius: 8px;
+     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
-.contacto .col .info{
-    position: absolute;
-    top: 40%;
-    background-color: #252A2E;
+
+.contacto .col .info {
+    position: static; /* Cambiado de absoluto para mejor flujo en responsive */
+    top: auto;
+    left: auto;
+    transform: none; /* Transformación eliminada */
+    margin-top: 20px; /* Añadir espacio encima de la información */
+    background-color: var(--background-medium);
     padding: 20px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
-.contacto .col .info ul{
+.contacto .col .info ul {
     list-style: none;
+    padding: 0;
 }
-.contacto .col .info ul li{
-    margin-bottom: 10px;
+.contacto .col .info ul li {
+    margin-bottom: 15px; /* Margen aumentado */
+    font-size: 1rem;
+    line-height: 1.5;
+    display: flex; /* Alinear icono y texto */
+    align-items: center;
 }
-.contacto .col .info ul li i{
-    color: #1CB698;
+.contacto .col .info ul li i {
+    color: var(--primary-color);
     display: inline-block;
-    margin-right: 0px;
+    margin-right: 15px; /* Margen aumentado */
+    font-size: 1.2rem;
+    width: 25px; /* Ancho fijo para la columna de icono */
 }
-footer{
-    background-color: #252A2E;
-    color: #fff;
-    padding: 50px 0 30px 0;
+
+/* PIE DE PÁGINA */
+footer {
+    background-color: var(--background-medium);
+    color: var(--text-color-light);
+    padding: 40px 0 20px 0; /* Padding ajustado */
     text-align: center;
     position: relative;
     width: 100%;
 }
-footer .redes{
+footer .redes {
     margin-bottom: 20px;
 }
-footer .redes a{
-    color: #fff;
+footer .redes a {
+    color: var(--text-color-light);
     display: inline-block;
     text-decoration: none;
-    border: 1px solid #fff;
-    border-radius: 100%;
-    width: 42px;
-    height: 42px;
-    line-height: 42px;
-    margin: 40px 5px;
-    font-size: 20px;
-    transition: .3s;
+    border: 1px solid var(--text-color-light);
+    border-radius: 50%;
+    width: 38px; /* Tamaño ajustado */
+    height: 38px;
+    line-height: 38px;
+    margin: 0 5px; /* Margen ajustado */
+    font-size: 18px;
+    transition: all 0.3s ease;
+     display: inline-flex; /* Usar flex para centrar icono */
+    align-items: center;
+    justify-content: center;
 }
-footer .arriba{
+footer .redes a:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-5px); /* Efecto de ligero levantamiento */
+}
+footer .arriba {
     display: block;
-    width: 50px;
-    height: 50px;
-    background-color: #1CB698;
-    color: #fff;
+    width: 45px; /* Tamaño ajustado */
+    height: 45px;
+    background-color: var(--primary-color);
+    color: var(--text-color-dark); /* Texto oscuro */
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: -25px;
+    top: -22.5px; /* Posición centrada en el borde */
     border-radius: 50%;
-    line-height: 50px;
+    line-height: 45px;
     font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
-/* SECCION RESPONSIVE */
-@media screen and (max-width:980px){
-    nav{
-        display: none;
+
+footer .arriba:hover {
+    background-color: var(--text-color-light);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+
+/* SECCIÓN RESPONSIVE */
+@media screen and (max-width: 980px) {
+    nav {
+        display: none; /* Ocultar nav de escritorio por defecto */
     }
-    .nav-responsive{
-        display: block;
+    .nav-responsive {
+        display: block; /* Mostrar icono de hamburguesa */
     }
-    nav.responsive{
-        display: block;
+    nav.responsive {
+        display: block; /* Mostrar nav responsivo */
         position: absolute;
         right: 0;
-        top: 75px;
-        background-color: #252A2E;
-        width: 180px;
+        top: 70px; /* Posicionar debajo del encabezado */
+        background-color: var(--background-medium);
+        width: 200px; /* Ancho aumentado */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        animation: slideInRight 0.5s ease-out; /* Animación para el menú */
     }
-    nav.responsive ul{
+
+    @keyframes slideInRight {
+        0% { transform: translateX(100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+    }
+
+    nav.responsive ul {
         display: block !important;
+        padding: 0; /* Eliminar padding */
     }
-    nav.responsive ul li{
-        border-bottom: 1px solid #fff;
-        padding: 10px 0;
+    nav.responsive ul li {
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Separador sutil */
+        padding: 15px 20px; /* Padding ajustado */
+    }
+     nav.responsive ul li:last-child {
+         border-bottom: none;
+     }
+     nav.responsive ul li a {
+         margin: 0; /* Eliminar margen */
+         padding: 0; /* Eliminar padding */
+         text-align: left; /* Alinear texto a la izquierda */
+     }
+    /* Eliminar efecto de subrayado para los enlaces del menú responsivo */
+    nav.responsive ul li a::after {
+        display: none;
+    }
+    nav.responsive ul li a:hover {
+         color: var(--primary-color);
+    }
+
+    .inicio {
+        height: auto; /* Permitir que la altura se ajuste */
+        padding-top: 100px; /* Más padding */
+        padding-bottom: 50px;
+    }
+    .inicio .contenido-banner {
+        max-width: 90%; /* Permitir que el banner sea más ancho */
+    }
+
+    section {
+        padding: 60px 15px; /* Ajustar padding */
+    }
+
+    h2 {
+         font-size: 38px; /* Título más pequeño en móvil */
+    }
+
+    .sobremi .fila,
+    .skills .fila,
+    .curriculum .fila,
+    .contacto .fila {
+        display: block; /* Apilar columnas */
+    }
+
+    .sobremi .fila .col,
+    .skills .fila .col,
+    .curriculum .fila .col,
+    .contacto .col {
+        width: 100%; /* Ancho completo */
+        padding: 0; /* Eliminar padding de columna */
+        margin-bottom: 30px; /* Espacio entre columnas apiladas */
+    }
+     .sobremi .fila .col:last-child,
+     .skills .fila .col:last-child,
+     .curriculum .fila .col:last-child,
+     .contacto .col:last-child {
+          margin-bottom: 0;
+     }
+
+
+    .skills .fila .col .barra-skill {
+        width: 100%; /* Asegurar que la barra de habilidad tenga ancho completo */
+    }
+
+     .curriculum .fila .izquierda,
+     .curriculum .fila .derecha {
+         border-right: none;
+         border-left: none;
+     }
+     .curriculum .fila .item {
+          margin-right: 0;
+          margin-left: 0;
+          border-right: none; /* Asegurar que el borde derecho haya desaparecido */
+          /* Mantener borde izquierdo para línea de tiempo simple */
+     }
+
+    .portfolio .galeria {
+        grid-template-columns: 1fr; /* Grid de una sola columna */
+    }
+
+     .contacto .col .info {
+         margin-top: 30px; /* Margen aumentado */
+     }
+     .contacto .col .info ul li i {
+          margin-right: 10px; /* Margen de icono ajustado */
+     }
+
+     .btn-download-cv {
+         width: 100%; /* Botón de ancho completo */
+         max-width: 300px; /* Limitar ancho máximo */
+         margin-left: auto;
+         margin-right: auto;
+         display: block; /* Asegurar que sea un elemento de bloque */
+     }
+}
+
+/* Opcional: Añadir más puntos de quiebre para tabletas si es necesario */
+/*
+@media screen and (min-width: 600px) and (max-width: 980px) {
+    .sobremi .fila,
+    .skills .fila,
+    .curriculum .fila,
+    .contacto .fila {
+        gap: 20px;
+    }
+    .skills .fila .col,
+    .curriculum .fila .col,
+    .contacto .col {
+         min-width: auto;
+         width: 50%;
     }
 }
-@media screen and (max-width:700px){
-    .sobremi .fila{
-        display: block;
-    }
-    .sobremi .fila .col{
-        width: fit-content;
-    }
-
-    .skills .fila{
-        display: block;
-    }
-    .skills .fila .col{
-        width: 100%;
-    }
-    .skills .fila .col .barra-skill{
-        width: 100%;
-    }
-
-    .curriculum .fila{
-        display: block;
-    }
-    .curriculum .fila .col{
-        width: 90%;
-    }
-    .curriculum .fila .derecha{
-        margin-left: 20px;
-    }
-
-    .portfolio .galeria{
-        display: block;
-        width: 100%;
-    }
-    .portfolio .galeria .proyecto{
-        max-width: 100%;
-    }
-    .portfolio .galeria .proyecto img{
-        width: 100%;
-    }
-    .contacto .fila{
-        display: block;
-    }
-    .contacto .fila .col{
-        width: 100%;
-    }
-}
-
-.download-cv {
-    position: relative;
-    right: -780px;
-    float: left;
-    margin-left: 20px;
-    padding: 10px 20px;
-    background-color: aqua;
-    border: none;
-    border-radius: 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    box-shadow: 1px 3px 11px -5px rgba(182, 231, 200, .69);
-    width: 250px;
-    height: 75px;
-    text-transform: capitalize;
-    top: 100px;
-    font-size: large;
-}
-
-.download-cv:hover {
-    background-color: #fff;
-    box-shadow: none;
-}
+*/
