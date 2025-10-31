@@ -2,307 +2,185 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="vecteezy_portfolio-icon-for-your-website-mobile-presentation-and_20815881-removebg-preview.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Lucas Garrido | Portafolio</title>
-    <link rel="stylesheet" href="Diseño.css">
+    
+    <title>Preparando tu Hogar | Servicio de Limpieza Profesional en San Nicolás</title>
+
+    <meta name="description" content="Servicio de limpieza profesional para hogares, oficinas y locales en San Nicolás de los Arroyos. Ofrecemos limpieza de final de obra, residencial, comercial y más. ¡Pedí tu presupuesto!">
+
+    <link rel="icon" type="image/png" href="logo.png.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="contenedor-header">
-        <header>
-            <div class="logo">
-                <a href="#">Lucas Garrido</a>
+
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#hero" class="logo"><img src="logo.png.png" alt="Logo" class="logo-icon">PREPARANDO TU HOGAR</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#hero" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Nuestros Servicios</a></li>
+                <li class="nav-item"><a href="#why-us" class="nav-link">¿Por Qué Elegirnos?</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contacto</a></li>
+            </ul>
+            <a href="https://wa.me/543364666718" target="_blank" class="btn btn-primary">Pedir Presupuesto</a>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
-                    <li><a href="#sobremi" onclick="seleccionar()">SOBRE MÍ</a></li>
-                    <li><a href="#skills" onclick="seleccionar()">HABILIDADES</a></li>
-                    <li><a href="#curriculum" onclick="seleccionar()">CURRÍCULUM</a></li>
-                    <li><a href="#portfolio" onclick="seleccionar()">PORTAFOLIO</a></li>
-                    <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
-                </ul>
-            </nav>
-            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
-                <i class="fa-solid fa-bars"></i>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Limpieza Profesional para tu Hogar y Negocio</h1>
+                <p>¡Somos expertos en limpieza para todo tipo de ambiente, incluido el tuyo! Garantizamos satisfacción y eficacia.</p>
+                <a href="https://wa.me/543364666718" target="_blank" class="btn btn-secondary">Pedir Presupuesto</a>
             </div>
-        </header>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>Soluciones a la Medida de tu Espacio</h2>
+                <div class="services-grid">
+                    <a href="final-de-obra.html" class="service-card-link">
+                        <div class="service-card">
+                            <div class="icon"><i class="fas fa-hard-hat"></i></div>
+                            <h3>Final de Obra</h3>
+                            <p>Dejamos tu propiedad reluciente después de una construcción o remodelación.</p>
+                        </div>
+                    </a>
+                    <a href="limpieza-residencial.html" class="service-card-link">
+                        <div class="service-card">
+                            <div class="icon"><i class="fas fa-home"></i></div>
+                            <h3>Limpieza Residencial</h3>
+                            <p>Servicio profundo y detallado para departamentos, casas y consorcios.</p>
+                        </div>
+                    </a>
+                    <a href="comercios-y-oficinas.html" class="service-card-link">
+                        <div class="service-card">
+                            <div class="icon"><i class="fas fa-store"></i></div>
+                            <h3>Comercios y Oficinas</h3>
+                            <p>Limpieza integral y continua de tu local o espacio de trabajo.</p>
+                        </div>
+                    </a>
+                    <a href="pre-y-post-mudanzas.html" class="service-card-link">
+                        <div class="service-card">
+                            <div class="icon"><i class="fas fa-box-open"></i></div>
+                            <h3>Pre y Post Mudanzas</h3>
+                            <p>Preparamos tu nuevo espacio o dejamos impecable el que dejás.</p>
+                        </div>
+                    </a>
+                    <a href="locales-gastronomicos.html" class="service-card-link">
+                        <div class="service-card">
+                            <div class="icon"><i class="fas fa-utensils"></i></div>
+                            <h3>Locales Gastronómicos</h3>
+                            <p>Nos especializamos en la limpieza y desinfección de locales de comida y cocinas.</p>
+                        </div>
+                    </a>
+                    <a href="limpiezas-profundas.html" class="service-card-link">
+                        <div class="service-card">
+                            <div class="icon"><i class="fas fa-spray-can-sparkles"></i></div>
+                            <h3>Limpiezas Profundas</h3>
+                            <p>Servicios puntuales y exhaustivos para una higiene total y detallada.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us">
+            <div class="container why-us-container">
+                <div class="why-us-image">
+                     <img src="https://images.unsplash.com/photo-1603796846097-bee9de3a1699?q=80&w=1974&auto=format&fit=crop" alt="Equipo de limpieza profesional trabajando">
+                </div>
+                <div class="why-us-content">
+                    <h2>¿Por Qué Elegirnos?</h2>
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-medal"></i></div>
+                        <div>
+                            <h3>Calidad y Confianza</h3>
+                            <p>Nuestro equipo está comprometido con la excelencia. Garantizamos un servicio confiable y resultados que superan tus expectativas.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-hand-sparkles"></i></div>
+                        <div>
+                            <h3>Atención al Detalle</h3>
+                            <p>Nos enfocamos en cada rincón. Creamos espacios limpios que inspiran productividad y bienestar.</p>
+                        </div>
+                    </div>
+                     <div class="feature-item">
+                        <div class="icon"><i class="fas fa-handshake"></i></div>
+                        <div>
+                            <h3>Atención Personalizada</h3>
+                            <p>Ofrecemos un trato directo y horarios flexibles. Nos adaptamos a todas tus necesidades y te brindamos un presupuesto a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+             <div class="container">
+                <div class="professional-definition">
+                    <h2>Un Servicio de Limpieza Profesional</h2>
+                    <p>Consiste en realizar limpiezas meticulosas llevadas a cabo por profesionales capacitados para limpiar, desinfectar e higienizar de manera adecuada. En Preparando tu Hogar, te aseguramos que tu espacio estará siempre limpio y en perfectas condiciones.</p>
+                </div>
+             </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h2>Contactanos y pedí tu presupuesto sin cargo</h2>
+            <p><strong>¡Respondemos en el día!</strong></p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon"><i class="fas fa-phone"></i></div>
+                    <a href="tel:3364666718">336 466-6718</a>
+                </div>
+                <div class="contact-item">
+                     <div class="icon"><i class="fas fa-envelope"></i></div>
+                     <a href="mailto:limpiando360@gmail.com">limpiando360@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/preparando_tu_hogar?igsh=MW1lNW8zdTc2MTI0Zg==" class="footer-social-link" target="_blank" aria-label="Visitar nuestro Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/15yqzpeoBY/" class="footer-social-link" target="_blank" aria-label="Visitar nuestro Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Preparando tu Hogar. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+    
+    <div class="social-bar">
+        <a href="https://wa.me/543364666718" class="social-btn whatsapp-btn" target="_blank" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
 
-    <section id="inicio" class="inicio">
-        <div class="contenido-banner">
-            <div class="contenedor-img">
-                <img src="Screenshot_20240307_130029_Gallery-ai-brush-removebg-votz2nxl.png" alt="Foto de perfil de Lucas Garrido">
-            </div>
-            <h1>Lucas Garrido</h1>
-            <h2>Desarrollador Frontend JR.</h2>
-            <div class="redes">
-                <a href="https://www.linkedin.com/in/lucas-emanuel-garrido/" target="_blank" aria-label="Enlace a LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://github.com/emanuel-garrido" target="_blank" aria-label="Enlace a GitHub"><i class="fa-brands fa-github"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section id="sobremi" class="sobremi fade-in">
-        <div class="contenido-seccion">
-            <h2>Sobre Mí</h2>
-            <p>
-                <span>Hola, soy Lucas Garrido.</span> Soy un apasionado desarrollador frontend junior con mucho amor por la creación de experiencias web atractivas y funcionales. Mi objetivo es combinar diseño y funcionalidad para construir aplicaciones web que impacten positivamente a los usuarios.
-            </p>
-            <div class="skills-description">
-                <h3>Habilidades Clave:</h3>
-                <ul>
-                    <li><strong>Lenguajes y Tecnologías:</strong> HTML, CSS, JavaScript.</li>
-                    <li><strong>Frameworks y Librerías:</strong> React, Vue.js.</li>
-                    <li><strong>Herramientas de Desarrollo:</strong> Git.</li>
-                    <li><strong>Diseño Responsivo:</strong> Creación de sitios web que se ven geniales en todos los dispositivos.</li>
-                    <li><strong>Colaboración:</strong> Trabajo bien en equipo y estoy abierto a aprender de otros desarrolladores.</li>
-                </ul>
-            </div>
-
-            <div class="fila datos-personales-fila">
-                <div class="col">
-                    <h3>Datos Personales</h3>
-                    <ul>
-                        <li>
-                            <strong>Fecha de Nacimiento</strong>
-                            08-03-1997
-                        </li>
-                        <li>
-                            <strong>Teléfono</strong>
-                             +54 9 3364 354039
-                        </li>
-                        <li>
-                            <strong>Email</strong>
-                             garridolucas14@gmail.com
-                        </li>
-                        <li>
-                            <strong>Dirección</strong>
-                             Francia 506, San Nicolás de los Arroyos - Bs. As. Argentina.
-                        </li>
-                        <li>
-                            <strong>Cargo Actual</strong>
-                            <span>FREELANCE</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="skills" id="skills">
-        <div class="contenido-seccion">
-            <h2>Habilidades</h2>
-            <div class="fila">
-                <div class="col">
-                    <h3>Habilidades Técnicas</h3>
-                    <div class="skill">
-                        <span>Javascript</span>
-                        <div class="barra-skill">
-                            <div class="progreso javascript">
-                                <span>75%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>HTML & CSS</span>
-                        <div class="barra-skill">
-                            <div class="progreso htmlcss">
-                                <span>75%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>React</span>
-                        <div class="barra-skill">
-                            <div class="progreso react">
-                                <span>60%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Vue.js</span>
-                        <div class="barra-skill">
-                            <div class="progreso vuejs">
-                                <span>50%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Git</span>
-                        <div class="barra-skill">
-                            <div class="progreso git">
-                                <span>70%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <h3>Habilidades Profesionales</h3>
-                    <div class="skill">
-                        <span>Comunicación</span>
-                        <div class="barra-skill">
-                            <div class="progreso comunicacion">
-                                <span>95%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Trabajo en Equipo</span>
-                        <div class="barra-skill">
-                            <div class="progreso trabajo-equipo">
-                                <span>90%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Creatividad</span>
-                        <div class="barra-skill">
-                            <div class="progreso creatividad">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Dedicación</span>
-                        <div class="barra-skill">
-                            <div class="progreso dedicacion">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Adaptabilidad</span>
-                        <div class="barra-skill">
-                            <div class="progreso adaptabilidad">
-                                <span>90%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="curriculum" class="curriculum fade-in">
-        <div class="contenido-seccion">
-            <h2>Currículum</h2>
-            <a href="Curriculum Vitae Dev.pdf" download class="btn-download-cv">
-                Descargar CV <i class="fa-solid fa-download"></i>
-            </a>
-            <div class="fila">
-                <div class="col izquierda">
-                    <h3>Educación</h3>
-                    <div class="item izq">
-                        <h4>Aprendizaje Autodidacta en Desarrollo Frontend</h4>
-                        <span class="casa">Platzi y Tutoriales de Hola Mundo</span>
-                        <span class="fecha">2022 - Presente</span>
-                        <p>Formación intensiva a través de cursos y tutoriales en plataformas online como Platzi y Hola Mundo (YouTube). Enfoque en HTML, CSS, JavaScript, React, y Vue.js, complementado con práctica constante en proyectos personales.</p>
-                    </div>
-                    <div class="item izq">
-                        <h4>Título Secundario</h4>
-                        <span class="casa">Escuela de Educación Media N° 9 Justo José de Urquiza</span>
-                        <span class="fecha">2010 - 2014</span>
-                        <p>Educación secundaria completa.</p>
-                    </div>
-                </div>
-
-                <div class="col derecha">
-                    <h3>Experiencia</h3>
-                    <div class="item der">
-                        <h4>Desarrollador Frontend Junior (Freelance)</h4>
-                        <span class="casa">Proyectos Personales / Clientes Varios</span>
-                        <p>Desarrollo de interfaces de usuario responsivas y dinámicas utilizando HTML, CSS y JavaScript. Implementación de componentes con React y Vue.js para mejorar la interactividad y la escalabilidad de las aplicaciones web. Colaboración en la mejora continua de la experiencia del usuario.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio fade-in">
-        <div class="contenido-seccion">
-            <h2>PORTAFOLIO</h2>
-            <div class="galeria">
-                <div class="proyecto">
-                    <img src="proyecto-hogar.png.png" alt="Proyecto Preparando tu Hogar">
-                    <div class="overlay">
-                        <h3>Preparando tu Hogar</h3>
-                        <p>Landing Page - Servicios de Limpieza</p>
-                        <a href="https://emanuel-garrido.github.io/preparando-tu-hogar/" target="_blank" class="project-link">
-                            <i class="fa-solid fa-up-right-from-square"></i> Ver Proyecto
-                        </a>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="proyecto-blog.png.png" alt="Screenshot del proyecto Mi Primer Blog">
-                    <div class="overlay">
-                        <h3>Mi Primer Blog</h3>
-                        <p>Estructura básica de Blog Personal</p>
-                        <a href="https://emanuel-garrido.github.io/Mi-primer-blog/#titulo" target="_blank" class="project-link">
-                            <i class="fa-solid fa-up-right-from-square"></i> Ver Proyecto
-                        </a>
-                    </div>
-                </div>
-                     <div class="proyecto">
-                    <img src="Captura de pantalla (181).png" alt="Proyecto Mi Primer Pagina Web para Violeta Dance">
-                    <div class="overlay">
-                        <h3>Primer Pagina Web para Violeta Dance</h3>
-                        <p> Pagina para Academia de Danza "Violeta Dance"</p>
-                        <a href="https://www.violetadance.site/" target="_blank" class="project-link">
-                            <i class="fa-solid fa-up-right-from-square"></i> Ver Proyecto
-                        </a>
-                    </div>
-                </div>
-
-                </div> </div> </section> <section id="contacto" class="contacto fade-in">
-        <div class="contenido-seccion">
-            <h2>CONTACTO</h2>
-            <div class="fila">
-                <div class="col">
-                     <input type="text" placeholder="Tu Nombre" required>
-                    <input type="text" placeholder="Número telefónico">
-                    <input type="email" placeholder="Dirección de correo" required>
-                    <input type="text" placeholder="Tema">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje" required></textarea>
-                    <button type="submit"> Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
-                        <span class="overlay"></span>
-                    </button>
-                </div>
-                <div class="col">
-                    <img src="contact_bg.png" alt="Icono de mapa indicando ubicación">
-                    <div class="info">
-                        <ul>
-                            <li>
-                                <i class="fa-solid fa-location-dot"></i>
-                                Francia 506 - San Nicolás de los Arroyos, Bs. As. Argentina.
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-mobile-screen"></i>
-                                Llamame: +54 9 3364 354039
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
-                                Email: garridolucas14@gmail.com
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <a href="#inicio" class="arriba" aria-label="Volver arriba">
-            <i class="fa-solid fa-angles-up"></i>
-        </a>
-        <div class="redes">
-             <a href="https://www.linkedin.com/in/lucas-emanuel-garrido/" target="_blank" aria-label="Enlace a LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-             <a href="https://github.com/emanuel-garrido" target="_blank" aria-label="Enlace a GitHub"><i class="fa-brands fa-github"></i></a>
-        </div>
-        <p>&copy; 2025 Lucas Garrido. Todos los derechos reservados.</p> </footer>
-
-    <script src="Interaccion.js"></script>
+    <script>
+        // Script para el menú hamburguesa en móviles
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+    </script>
 </body>
 </html>
